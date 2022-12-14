@@ -13,7 +13,7 @@ public class RockMusicPlayer {
 
     List<Song> rockList = new ArrayList();
 
-    @PostConstruct
+     @PostConstruct
     public void init(){
         Song song1 = new Song();
         song1.setSongName("Creep");
@@ -29,11 +29,10 @@ public class RockMusicPlayer {
 
     public void playRock() {
         init();
-        System.out.println("Выберите исполнителя");
+        System.out.println("Выберите исполнителя:");
         System.out.println("1." + rockList.get(0).getAuthorName());
         System.out.println("2." + rockList.get(1).getAuthorName());
         System.out.println("0. Выход");
-
 
         Scanner sc = new Scanner(System.in);
         String inputNumber = sc.next();
@@ -41,44 +40,21 @@ public class RockMusicPlayer {
         String range = "[0-2]{1}";
 
         while(!inputNumber.matches(range)){
-            System.out.println("не верный выбор");
-            System.out.println("ану ка повтори");
+            System.out.println("такого пункта нет");
+            System.out.println("повторите попытку");
             inputNumber = sc.next();
         }
+        sc.close();
 
-        System.out.println("------------------------------------------------------------");
-
-        System.out.println("input = " + inputNumber);
-
-
-//        Scanner sc = new Scanner(System.in);
-//            int inputNumber = sc.nextInt();
-//
-//            if (inputNumber != 0 && inputNumber != 1 && inputNumber != 2) {
-//
-//                System.out.println("выберите номер исполнителя");
-//
-//
-//            }else {
+        System.out.println("Выбран пункт: " + inputNumber);
 
       int i = Integer.parseInt(inputNumber);
         switch (i) {
-            case 0:
-                System.out.println("Выход из меню");
-                break;
-            case 1:
-                System.out.println("Выбрана група: " + rockList.get(0).getAuthorName());
-                break;
-            case 2:
-                System.out.println("Выбрана група: " + rockList.get(1).getAuthorName());
-                break;
-            default:
-                System.out.println("выберите номер исполнителя");
-                break;
+            case 0 -> System.out.println("Выход из меню");
+            case 1 -> System.out.println("Выбраная група: " + rockList.get(0).getAuthorName());
+            case 2 -> System.out.println("Выбраная група: " + rockList.get(1).getAuthorName());
         }}
-
-        //sc.close();
-    }
+}
 
 
 
