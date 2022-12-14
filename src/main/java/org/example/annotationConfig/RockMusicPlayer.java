@@ -13,8 +13,8 @@ public class RockMusicPlayer {
 
     List<Song> rockList = new ArrayList();
 
-     @PostConstruct
-    public void init(){
+    @PostConstruct
+    public void init() {
         Song song1 = new Song();
         song1.setSongName("Creep");
         song1.setAuthorName("Radiohead");
@@ -39,7 +39,7 @@ public class RockMusicPlayer {
 
         String range = "[0-2]{1}";
 
-        while(!inputNumber.matches(range)){
+        while (!inputNumber.matches(range)) {
             System.out.println("такого пункта нет");
             System.out.println("повторите попытку");
             inputNumber = sc.next();
@@ -48,12 +48,13 @@ public class RockMusicPlayer {
 
         System.out.println("Выбран пункт: " + inputNumber);
 
-      int i = Integer.parseInt(inputNumber);
+        int i = Integer.parseInt(inputNumber);
         switch (i) {
             case 0 -> System.out.println("Выход из меню");
             case 1 -> System.out.println("Выбраная група: " + rockList.get(0).getAuthorName());
             case 2 -> System.out.println("Выбраная група: " + rockList.get(1).getAuthorName());
-        }}
+        }
+    }
 }
 
 
