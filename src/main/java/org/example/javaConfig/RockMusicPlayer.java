@@ -1,34 +1,18 @@
-package org.example.annotationConfig;
+package org.example.javaConfig;
 
 import org.example.Song;
-import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-@Component("rockMusicPlayer")
 public class RockMusicPlayer {
 
-    List<Song> rockList = new ArrayList();
+    private List<Song> rockList;
 
-    @PostConstruct
-    public void init() {
-        Song song1 = new Song();
-        song1.setSongName("Creep");
-        song1.setAuthorName("Radiohead");
+    public RockMusicPlayer(List<Song> rockList){this.rockList = rockList;}
 
-        Song song2 = new Song();
-        song2.setSongName("Yellow");
-        song2.setAuthorName("Coldplay");
+    public void playRock(){
 
-        rockList.add(song1);
-        rockList.add(song2);
-    }
-
-    public void playRock() {
-        init();
         System.out.println("Выберите исполнителя:");
         System.out.println("1." + rockList.get(0).getAuthorName());
         System.out.println("2." + rockList.get(1).getAuthorName());
@@ -44,7 +28,7 @@ public class RockMusicPlayer {
             System.out.println("повторите попытку");
             inputNumber = sc.next();
         }
-       // sc.close();
+
 
         System.out.println("Выбран пункт: " + inputNumber);
 
@@ -54,8 +38,7 @@ public class RockMusicPlayer {
             case 1 -> System.out.println("Выбраная група: " + rockList.get(0).getAuthorName() + " песня: " + rockList.get(0).getSongName());
             case 2 -> System.out.println("Выбраная група: " + rockList.get(1).getAuthorName() + " песня: " + rockList.get(1).getSongName());
         }
+        //sc.close();
     }
+
 }
-
-
-
