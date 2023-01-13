@@ -1,15 +1,12 @@
-package org.example.javaConfig;
+package org.example.xmlConfig;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-       // Scanner sc = new Scanner(System.in);
-
-        ApplicationContext acontext = new AnnotationConfigApplicationContext(ConfigClass.class);
+        ClassPathXmlApplicationContext mContext = new ClassPathXmlApplicationContext("appConfig.xml");
 
         System.out.println("Выберите жанр музыки:");
         System.out.println("1." + "Рок");
@@ -34,14 +31,15 @@ public class Main {
             case 0: {System.out.println("Выход из меню");
                 break;}
             case 1: {System.out.println("рок музыка: ");
-                org.example.javaConfig.MusicPlayer musicPlayer = acontext.getBean("musicPlayer", org.example.javaConfig.MusicPlayer.class);
-                musicPlayer.playRock();
+                org.example.xmlConfig.MusPlayer musicPlayer = mContext.getBean("musicPlayer", org.example.xmlConfig.MusPlayer.class);
+                musicPlayer.playRockMus();
                 break;}
             case 2: { System.out.println("классическая музыка");
-                org.example.javaConfig.MusicPlayer musicPlayer = acontext.getBean("musicPlayer", org.example.javaConfig.MusicPlayer.class);
-                musicPlayer.playClassic();
+                org.example.xmlConfig.MusPlayer musicPlayer = mContext.getBean("musicPlayer", org.example.xmlConfig.MusPlayer.class);
+                musicPlayer.playClassicMus();
                 break;}
         }
     }
+
     }
 

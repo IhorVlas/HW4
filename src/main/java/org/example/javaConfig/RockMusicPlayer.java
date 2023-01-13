@@ -38,7 +38,7 @@ public class RockMusicPlayer {
             case 1 -> System.out.println("Выбраная група: " + rockList.get(0).getAuthorName() + " песня: " + rockList.get(0).getSongName());
             case 2 -> System.out.println("Выбраная група: " + rockList.get(1).getAuthorName() + " песня: " + rockList.get(1).getSongName());
         }
-        //sc.close();
+        sc.close();
     }
 
 }
